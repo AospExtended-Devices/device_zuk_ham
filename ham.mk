@@ -32,7 +32,8 @@ PRODUCT_PACKAGES += \
     init.qcom.power.rc \
     init.qcom.usb.rc \
     init.recovery.qcom.rc \
-    init.program_bdaddr.sh
+    init.program_bdaddr.sh \
+    init.safailnet.rc
 
 # APEX
 PRODUCT_COPY_FILES += \
