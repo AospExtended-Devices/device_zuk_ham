@@ -157,7 +157,7 @@ on fs
     wait /dev/block/platform/${ro.boot.bootdevice}
     symlink /dev/block/platform/${ro.boot.bootdevice} /dev/block/bootdevice
 
-    mount_all ./vendor/etc/fstab.qcom
+    mount_all ./vendor/etc/fstab.qcom --early
     mkdir /dev/usb-ffs 0770 shell shell
     mkdir /dev/usb-ffs/adb 0770 shell shell
     mount functionfs adb /dev/usb-ffs/adb uid=2000,gid=2000
@@ -170,6 +170,18 @@ on fs
     restorecon_recursive /persist
 
     mount ext4 /dev/block/bootdevice/by-name/mrd /oem ro nosuid nodev context=u:object_r:oemfs:s0
+
+    # Start HW service manager early
+    start hwservicemanager
+
+on late-fs
+    # Start services for bootanim
+    start surfaceflinger
+    start bootanim
+    start configstore-hal-1-0
+    start gralloc-2-0
+
+    mount_all ./vendor/etc/fstab.qcom --late
 
 service rmt_storage /vendor/bin/rmt_storage
     class core
