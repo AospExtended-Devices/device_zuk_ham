@@ -15,3 +15,8 @@
 
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/aosp_ham.mk
+
+COMMON_LUNCH_CHOICES := \
+    aosp_ham-user \
+    aosp_ham-userdebug \
+    aosp_ham-eng
