@@ -13,7 +13,7 @@
   },
   {
     "remote":      "github",
-    "repository":  "TheMuppets/android_proprietary_vendor_zuk",
+    "repository":  "TheMuppets/proprietary_vendor_zuk",
     "target_path": "vendor/zuk",
     "branch":      "lineage-15.1"
   }
