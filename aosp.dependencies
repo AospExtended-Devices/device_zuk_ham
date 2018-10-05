@@ -7,6 +7,12 @@
   },
   {
     "remote":      "github",
+    "repository":  "LineageOS/android_hardware_lineage_telephony",
+    "target_path": "hardware/lineage/telephony",
+    "branch":      "lineage-15.1"
+  },
+  {
+    "remote":      "github",
     "repository":  "LineageOS/android_kernel_cyanogen_msm8974",
     "target_path": "kernel/cyanogen/msm8974",
     "branch":      "lineage-15.1"
