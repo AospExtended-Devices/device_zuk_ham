@@ -21,16 +21,16 @@ import android.app.ActionBar;
 import android.content.Context;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.support.v4.content.ContextCompat;
-import android.support.v14.preference.PreferenceFragment;
-import android.support.v7.preference.Preference;
-import android.support.v14.preference.SwitchPreference;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
+import androidx.core.content.ContextCompat;
+import androidx.preference.PreferenceFragment;
+import androidx.preference.Preference;
+import androidx.preference.SwitchPreference;
 
 public class TouchscreenGesturePreferenceFragment extends PreferenceFragment {
 
@@ -56,7 +56,7 @@ public class TouchscreenGesturePreferenceFragment extends PreferenceFragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        ActionBar actionbar = getActivity().getActionBar();
+        final ActionBar actionbar = getActivity().getActionBar();
         actionbar.setDisplayHomeAsUpEnabled(true);
         actionbar.setTitle(R.string.ambient_display_title);
     }
@@ -98,10 +98,10 @@ public class TouchscreenGesturePreferenceFragment extends PreferenceFragment {
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.gesture_panel);
 
+        boolean dozeEnabled = isDozeEnabled();
+
         mBackgroundActivatedColor = ContextCompat.getColor(getActivity(), R.color.switchBarBackgroundActivatedColor);
         mBackgroundColor = ContextCompat.getColor(getActivity(), R.color.switchBarBackgroundColor);
-
-        boolean dozeEnabled = isDozeEnabled();
 
         mHandwavePreference = (SwitchPreference) findPreference(KEY_GESTURE_HAND_WAVE);
         mHandwavePreference.setEnabled(dozeEnabled);

@@ -19,15 +19,15 @@ package org.lineageos.settings.devicesettings;
 
 import android.os.Bundle;
 
-import com.android.settingslib.drawer.SettingsDrawerActivity;
+import android.preference.PreferenceActivity;
 
-public class TouchscreenGesturePreferenceActivity extends SettingsDrawerActivity {
+public class TouchscreenGesturePreferenceActivity extends PreferenceActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getFragmentManager().beginTransaction()
-                .replace(R.id.content_frame, new TouchscreenGesturePreferenceFragment())
+                .replace(android.R.id.content, new TouchscreenGesturePreferenceFragment())
                 .commit();
     }
 }
