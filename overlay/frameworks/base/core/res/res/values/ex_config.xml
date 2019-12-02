@@ -56,4 +56,8 @@
 
     <!-- True if the home button has the ability to wake up phone from lockscreen-->
     <bool name="config_HomeWakeButton">true</bool>
+
+    <!-- Whether to post reset runnable for all clients. Needed for some older
+         vendor fingerprint HAL implementations. -->
+    <bool name="config_fingerprintPostResetRunnableForAllClients">true</bool>
 </resources>
